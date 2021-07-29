@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
+import { StrictMode } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -28,8 +30,19 @@ function App() {
       <Router>
         <>
           <Navbar />
+
           <Switch>
-            <Route path="/" exact component={() => <Home />} />
+            <Route
+              path="/"
+              exact
+              component={() => (
+                <StrictMode>
+                  <ChakraProvider>
+                    <Home />
+                  </ChakraProvider>
+                </StrictMode>
+              )}
+            />
             <Route path="/about" exact component={() => <About />} />
             <Route path="/contact" exact component={() => <Contact />} />
           </Switch>
