@@ -1,37 +1,31 @@
 import React from "react";
-import { Box, Stack } from "@chakra-ui/react";
-import { Copyright } from "./Copyright.js";
-import { Logo } from "./Logo";
-import { SocialMediaLinks } from "./SocialMediaLinks";
+// Import hooks from React Router
+import { useLocation, useHistory } from "react-router-dom";
 
-function Footer() {
+const Footer = () => {
+  // We retrieve the current `location` object data from React Router
+  const location = useLocation();
+  // We get React Router's history object so we can access and adjust browser history
+  const history = useHistory();
   return (
-    <Box
-      as="footer"
-      role="contentinfo"
-      mx="auto"
-      maxW="7xl"
-      py="12"
-      px={{ base: "4", md: "8" }}
-      position="absolute"
-      left="0"
-      right="0"
-      bottom="0"
-    >
-      <Stack p="20px" background="pink">
-        <Stack
-          direction="row"
-          spacing="4"
-          align="center"
-          justify="space-between"
-        >
-          <Logo />
-          <SocialMediaLinks />
-        </Stack>
-        <Copyright alignSelf={{ base: "center", sm: "start" }} />
-      </Stack>
-    </Box>
+    <footer className="w-100 mt-auto text-dark p-4">
+      <div className="container text-center mb-5">
+        {location.pathname !== "/" && (
+          <button
+            className="btn btn-dark mb-3"
+            // Go back to the previous page in our browser's history
+            onClick={() => history.goBack()}
+          >
+            &larr; Go Back
+          </button>
+        )}
+        <h4>&copy; {new Date().getFullYear()} - Tech Friends</h4>
+      </div>
+      <div>
+        <h4>icons should be here</h4>
+      </div>
+    </footer>
   );
-}
+};
 
 export default Footer;

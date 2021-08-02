@@ -2,12 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-import { StrictMode } from "react";
-import { ChakraProvider } from "@chakra-ui/react";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Nav";
 import Footer from "./components/Footer";
+
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -21,7 +22,7 @@ const client = new ApolloClient({
       },
     });
   },
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 function App() {
@@ -32,17 +33,9 @@ function App() {
           <Navbar />
 
           <Switch>
-            <Route
-              path="/"
-              exact
-              component={() => (
-                <StrictMode>
-                  <ChakraProvider>
-                    <Home />
-                  </ChakraProvider>
-                </StrictMode>
-              )}
-            />
+            <Route path="/" exact component={() => <Home />} />
+            <Route path="/login" exact component={() => <Login />} />
+            <Route path="/register" exact component={() => <Register />} />
             <Route path="/about" exact component={() => <About />} />
             <Route path="/contact" exact component={() => <Contact />} />
           </Switch>
