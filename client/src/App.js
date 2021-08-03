@@ -9,8 +9,11 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { PrivateRoute } from "./components/PrivateRoute";
+import { PublicRoute } from "./components/PublicRoute";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -31,13 +34,13 @@ function App() {
       <Router>
         <>
           <Navbar />
-
           <Switch>
-            <Route path="/" exact component={() => <Home />} />
-            <Route path="/login" exact component={() => <Login />} />
-            <Route path="/register" exact component={() => <Register />} />
-            <Route path="/about" exact component={() => <About />} />
-            <Route path="/contact" exact component={() => <Contact />} />
+            <PublicRoute path="/" exact component={Home} />
+            <PublicRoute path="/login" exact component={Login} />
+            <PublicRoute path="/register" exact component={Register} />
+            <PrivateRoute path="/profile" exact component={Profile} />
+            <Route path="/about" exact component={About} />
+            <Route path="/contact" exact component={Contact} />
           </Switch>
 
           <Footer />
