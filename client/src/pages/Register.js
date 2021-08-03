@@ -41,11 +41,11 @@ const Register = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Register Page</h4>
-          <div className="card-body">
+    <main>
+      <div>
+        <div>
+          <h4>Register Page</h4>
+          <div>
             {data ? (
               <p>
                 Success! You may now head{" "}
@@ -55,7 +55,7 @@ const Register = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
+                  placeholder="Your name"
                   name="name"
                   type="text"
                   value={formState.name}
@@ -87,11 +87,7 @@ const Register = () => {
               </form>
             )}
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
+            {error && <div>{error.message}</div>}
           </div>
         </div>
       </div>

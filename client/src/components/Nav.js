@@ -1,35 +1,38 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 export default function Nav() {
-  const linkStyle = { border: "1px black", padding: "5px" };
-
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
-    <nav className="main-header-menu">
-      <section
-        style={{
-          display: "flex",
-          fontFamily: "helvetica",
-          flexDirection: "row",
-          alignItems: "flex-start",
-          justifyContent: "flex-start",
-        }}
-      >
-        <div style={linkStyle}>
-          <a href="/">Home</a>
-        </div>
-        <div style={linkStyle}>
-          <a href="/login">Login</a>
-        </div>
-        <div style={linkStyle}>
-          <a href="/register">Register</a>
-        </div>
-        <div style={linkStyle}>
-          <a href="/about">About</a>
-        </div>
-        <div style={linkStyle}>
-          <a href="/contact">Contact</a>
-        </div>
-      </section>
+    <nav>
+      <div>
+        <Link to="/">
+          <h1>Truck Driver App</h1>
+        </Link>
+        {Auth.loggedIn() ? (
+          <>
+            <Link className="btn btn-lg btn-primary m-2" to="/profile">
+              View My Profile
+            </Link>
+            <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        )}
+        <>
+          <Link to="/contact">Contact</Link>
+          <Link to="/about">About</Link>
+        </>
+      </div>
     </nav>
   );
 }

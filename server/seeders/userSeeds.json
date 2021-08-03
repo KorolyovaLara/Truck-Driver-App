@@ -1,12 +1,17 @@
 [
   {
-    "username": "Clark Kent",
+    "name": "Clark Kent",
     "email": "clark@mail.com",
     "password": "password01"
   },
   {
-    "username": "Kara Kent",
+    "name": "Kara Kent",
     "email": "kara@mail.com",
     "password": "password02"
+  },
+  {
+    "name": "Bruce Wayne",
+    "email": "bruce@mail.com",
+    "password": "password03"
   }
 ]
