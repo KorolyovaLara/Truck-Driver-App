@@ -2,7 +2,20 @@
   {
     "name": "Clark Kent",
     "email": "clark@mail.com",
-    "password": "password01"
+    "password": "password01",
+    "driver": {
+      "firstName": "Super",
+      "lastName": "Man",
+      "companyName": "Detroit",
+      "phoneNumber": "0404123123",
+      "driverLicence": "123456789"
+    },
+    "trucks": {
+      "truckId": "01",
+      "rego": "XX1-XX3",
+      "model": "Volvo",
+      "year": "2020"
+    }
   },
   {
     "name": "Kara Kent",

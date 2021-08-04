@@ -6,6 +6,8 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
+    driver: [DriverInfo]
+    trucks: [TruckInfo]
   }
 
   type Auth {
@@ -13,16 +15,46 @@ const typeDefs = gql`
     profile: Profile
   }
 
+  type DriverInfo {
+    firstName: String
+    lastName: String
+    companyName: String
+    phoneNumber: Int
+    driverLicence: Int
+  }
+
+  type TruckInfo {
+    truckId: String
+    rego: String
+    model: String
+    year: Int
+  }
+
+  input DriverInput {
+    firstName: String
+    lastName: String
+    companyName: String
+    phoneNumber: Int
+    driverLicence: Int
+  }
+
+  input TruckInput {
+    rego: String
+    model: String
+    year: Int
+  }
+
   type Query {
     profiles: [Profile]!
-    profile(profileId: ID!): Profile
-    # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: Profile
   }
 
   type Mutation {
     addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    saveInfo(dataDriver: DriverInput): Profile
+    saveTruck(dataTruck: TruckInput): Profile
+    deleteTruck(truckId: String!): Profile
   }
 `;
 

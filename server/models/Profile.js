@@ -1,5 +1,7 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
+const driverSchema = require("./Driver");
+const truckSchema = require("./Truck");
 
 const profileSchema = new Schema({
   name: {
@@ -19,9 +21,10 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  driver: [driverSchema],
+  trucks: [truckSchema],
 });
 
-// set up pre-save middleware to create password
 profileSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
@@ -31,7 +34,6 @@ profileSchema.pre("save", async function (next) {
   next();
 });
 
-// compare the incoming password with the hashed password
 profileSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };

@@ -13,31 +13,6 @@ const Profile = () => {
   return (
     <div>
       <h2 className="card-header">YOUR PROFILE</h2>
-      <div>
-        <table>
-          <thead>Your Details</thead>
-          <tr>
-            <th>First Name</th>
-            <td>Smith</td>
-          </tr>
-          <tr>
-            <th>Last Name</th>
-            <td>Jackson</td>
-          </tr>
-          <tr>
-            <th>Company Name</th>
-            <td>Jackson</td>
-          </tr>
-          <tr>
-            <th>Phone Number</th>
-            <td>Jackson</td>
-          </tr>
-          <tr>
-            <th>License Number</th>
-            <td>Jackson</td>
-          </tr>
-        </table>
-      </div>
     </div>
   );
 };
