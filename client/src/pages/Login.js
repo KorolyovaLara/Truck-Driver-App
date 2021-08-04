@@ -24,14 +24,14 @@ const Login = (props) => {
 
     try {
       const { data } = await login({
-        variables: formState,
+        variables: { ...formState },
       });
 
       Auth.login(data.login.token);
+      history.push("/profile");
     } catch (e) {
       console.error(e);
     }
-    history.push("/profile");
   };
 
   return (
@@ -66,12 +66,7 @@ const Login = (props) => {
                 Submit
               </button>
             </form>
-
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
+            {error && <div>{error.message}</div>}
           </div>
         </div>
       </div>

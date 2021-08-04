@@ -9,10 +9,13 @@ const resolvers = {
     },
 
     me: async (parent, args, context) => {
+      console.log("Problem");
       if (context.user) {
         return Profile.findOne({ _id: context.user._id });
       }
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError(
+        "You need to be logged in! from Query in resolvers"
+      );
     },
   },
 
@@ -48,7 +51,9 @@ const resolvers = {
         return updatedUser;
       }
 
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError(
+        "You need to be logged in! from Mutaion in resolvers - save Info"
+      );
     },
 
     saveTruck: async (parent, { dataTruck }, context) => {
@@ -62,7 +67,9 @@ const resolvers = {
         return updatedUser;
       }
 
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError(
+        "You need to be logged in! from Query in resolvers - save Truck"
+      );
     },
 
     deleteTruck: async (parent, { truckId }, context) => {
@@ -75,7 +82,9 @@ const resolvers = {
 
         return updatedUser;
       }
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError(
+        "You need to be logged in! from Mutaion in resolvers - Delete truck"
+      );
     },
   },
 };

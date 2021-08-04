@@ -6,7 +6,8 @@ import DriverForm from "../components/DriverForm";
 import DriverInfo from "../components/DriverInfo";
 
 const Profile = () => {
-  const { loading } = useQuery(QUERY_ME);
+  const { loading, data } = useQuery(QUERY_ME);
+  const user = data?.me || [];
 
   if (loading) {
     return <div>Loading...</div>;
@@ -14,7 +15,7 @@ const Profile = () => {
 
   return (
     <div>
-      <h2 className="card-header">YOUR PROFILE</h2>
+      <h2 className="card-header">YOUR = {user.name} = PROFILE</h2>
       <DriverInfo />
       <DriverForm />
     </div>

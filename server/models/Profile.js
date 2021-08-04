@@ -21,7 +21,7 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  driver: [driverSchema],
+  driver: driverSchema,
   trucks: [truckSchema],
 });
 
