@@ -1,28 +1,24 @@
-import { gql } from "@apollo/client";
-
-export const QUERY_PROFILES = gql`
-  query allProfiles {
-    profiles {
-      _id
-      name
-    }
-  }
-`;
-
-export const QUERY_SINGLE_PROFILE = gql`
-  query singleProfile($profileId: ID!) {
-    profile(profileId: $profileId) {
-      _id
-      name
-    }
-  }
-`;
+import gql from "graphql-tag";
 
 export const QUERY_ME = gql`
-  query me {
+  {
     me {
       _id
       name
+      email
+      driver {
+        firstName
+        lastName
+        companyName
+        phoneNumber
+        driverLicence
+      }
+      trucks {
+        truckId
+        rego
+        model
+        year
+      }
     }
   }
 `;
