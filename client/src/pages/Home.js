@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <section class="hero is-fullheight">
+    <section>
       <div>
         <h1>Home Page</h1>
         <Link to="/login">

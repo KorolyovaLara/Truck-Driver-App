@@ -11,7 +11,7 @@ export function PrivateRoute({ component: Component, ...rest }) {
         if (loggedIn) {
           return <Component {...props} />;
         }
-        return <Redirect to="/login" />;
+        return <Redirect to="/" />;
       }}
     />
   );

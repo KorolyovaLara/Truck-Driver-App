@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Auth from "../utils/auth";
 
 export default function Nav() {
@@ -34,62 +34,48 @@ export default function Nav() {
     }
   });
   return (
-    <nav
-      class="navbar is-warning is-fixed-bottom"
-      role="navigation"
-      aria-label="main navigation"
-    >
+    <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <h1 class="navbar-item">Truck Driver App</h1>
+        <h1 class="navbar-item">
+          <strong>Truck Driver App</strong>
+        </h1>
       </div>
 
       {Auth.loggedIn() ? (
-        <>
-          <h1 class="navbar-item">
-            <i class="fas fa-truck"></i>
-          </h1>
+        <div class="navbar-end">
           <div class="navbar-item">
-            <a class="button is-danger" onClick={logout}>
-              Logout
-            </a>
-          </div>
-          <h1 class="navbar-item">
             <i class="fas fa-truck"></i>
-          </h1>
-          <a href="/profile" class="navbar-item is-tab">
-            My Profile
-          </a>
-          <a href="/today" class="navbar-item is-tab">
-            Runsheet
-          </a>
-          <a href="/logs" class="navbar-item is-tab">
-            Summary
-          </a>
-        </>
+          </div>
+          <div class="navbar-item">
+            <button class="button is-danger" onClick={logout}>
+              Logout
+            </button>
+          </div>
+          <div class="navbar-item">
+            <i class="fas fa-truck"></i>
+          </div>
+        </div>
       ) : (
         <div class="navbar-end">
-          <h1 class="navbar-item">
-            <i class="fas fa-truck"></i>
-          </h1>
           <div class="navbar-item">
-            <a href="/" class="navbar-item is-tab">
-              Home
-            </a>
-          </div>
-          <h1 class="navbar-item">
             <i class="fas fa-truck"></i>
-          </h1>
+          </div>
+          <a href="/" class="navbar-item is-tab">
+            Home
+          </a>
+          <div class="navbar-item">
+            <i class="fas fa-truck"></i>
+          </div>
         </div>
       )}
+
       <div class="navbar-end">
-        <div class="navbar-item">
-          <a href="/contact" class="navbar-item is-tab">
-            Contact
-          </a>
-          <a href="/about" class="navbar-item is-tab">
-            About
-          </a>
-        </div>
+        <a href="/contact" class="navbar-item is-tab">
+          Contact
+        </a>
+        <a href="/about" class="navbar-item is-tab">
+          About
+        </a>
       </div>
     </nav>
   );

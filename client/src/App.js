@@ -33,15 +33,18 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar />
-          <Switch>
-            <PublicRoute path="/" exact component={Home} />
-            <PublicRoute path="/login" exact component={Login} />
-            <PublicRoute path="/register" exact component={Register} />
-            <PrivateRoute path="/profile" exact component={Profile} />
-            <Route path="/about" exact component={About} />
-            <Route path="/contact" exact component={Contact} />
-          </Switch>
+          <section class="hero is-success is-fullheight">
+            <Navbar />
+            <Switch>
+              <PublicRoute path="/" exact component={Home} />
+              <PublicRoute path="/login" exact component={Login} />
+              <PublicRoute path="/register" exact component={Register} />
+              <PrivateRoute path="/profile" exact component={Profile} />
+              <Route path="/about" exact component={About} />
+              <Route path="/contact" exact component={Contact} />
+            </Switch>
+            <Footer />
+          </section>
         </>
       </Router>
     </ApolloProvider>
