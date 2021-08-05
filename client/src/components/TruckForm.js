@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SAVE_TRUCK } from "../utils/mutations";
+import Auth from "../utils/auth";
 
 const TruckForm = () => {
   const [truckState, setTruckState] = useState({
@@ -24,7 +25,10 @@ const TruckForm = () => {
 
     try {
       const { data } = await saveTruck({
-        variables: { ...truckState },
+        variables: {
+          ...truckState,
+          truckDriver: Auth.getProfile().data.name,
+        },
       });
       console.log("entrydata ===>", data);
     } catch (err) {

@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer>
-      <div>
+    <footer class="footer">
+      <div class="content has-text-centered">
         <h4>
           &copy; {new Date().getFullYear()} -{" "}
           <a

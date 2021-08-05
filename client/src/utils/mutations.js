@@ -45,6 +45,7 @@ export const SAVE_TRUCK = gql`
       rego
       model
       year
+      truckDriver
     }
   }
 `;

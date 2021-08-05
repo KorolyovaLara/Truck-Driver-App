@@ -15,6 +15,11 @@ const truckSchema = new Schema({
     type: String,
     required: true,
   },
+  truckDriver: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 });
 
 const Truck = model("Truck", truckSchema);

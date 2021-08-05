@@ -25,6 +25,7 @@ const DriverForm = () => {
       const response = await saveInfo({
         variables: { dataDriver: { ...driverForm } },
       });
+      console.log("response", response);
       if (!response.ok) {
         throw new Error("Something went wrong on handleFormSubmit!");
       }

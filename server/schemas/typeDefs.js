@@ -28,6 +28,7 @@ const typeDefs = gql`
     rego: String
     model: String
     year: String
+    truckDriver: String
   }
 
   input DriverInput {
@@ -47,6 +48,8 @@ const typeDefs = gql`
   type Query {
     profiles: [Profile]!
     me: Profile
+    driver: Profile
+    trucks: [TruckInfo]
     allTrucks: [TruckInfo]
     allDrivers: [DriverInfo]
   }

@@ -10,12 +10,22 @@
       "phoneNumber": "0404123123",
       "driverLicence": "123456789"
     },
-    "trucks": {
-      "truckId": "01",
-      "rego": "XX1-XX3",
-      "model": "Volvo",
-      "year": "2020"
-    }
+    "trucks": [
+      {
+        "_id": "610b62a2c67a8b1c01e24664",
+        "rego": "123XXX",
+        "model": "VOLVO",
+        "year": "2020",
+        "truckDriver": "Clark Kent"
+      },
+      {
+        "_id": "610b719d9b25df21e0438501",
+        "rego": "XXX123",
+        "model": "MAC",
+        "year": "2010",
+        "truckDriver": "Clark Kent"
+      }
+    ]
   },
   {
     "name": "Kara Kent",

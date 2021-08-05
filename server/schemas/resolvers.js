@@ -5,7 +5,7 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     profiles: async () => {
-      return Profile.find();
+      return Profile.find({}).populate("trucks").populate("driver");
     },
 
     me: async (parent, args, context) => {
@@ -16,6 +16,14 @@ const resolvers = {
         "You need to be logged in! from Query in resolvers"
       );
     },
+    driver: async (parent, { name }) => {
+      return Profile.findOne({ name }).map("trucks");
+    },
+    trucks: async (parent, { name }) => {
+      const params = name ? { name } : {};
+      return Truck.find(params).sort();
+    },
+
     allTrucks: async () => {
       return Truck.find();
     },
@@ -45,11 +53,12 @@ const resolvers = {
       return { token, profile };
     },
 
-    saveInfo: async (parent, { dataDriver }, context) => {
+    saveInfo: async (parent, dataDriver, context) => {
+      console.log("datadriver", dataDriver);
       if (context.user) {
         const updatedUser = await Profile.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { driver: dataDriver } },
+          { $addToSet: { driver: dataDriver } },
           { new: true }
         );
 
@@ -67,15 +76,16 @@ const resolvers = {
           rego,
           model,
           year,
+          truckDriver: context.user.name,
         });
-        // await Profile.findOneAndUpdate(
-        // { _id: context.user._id },
-        //{ $addToSet: { trucks: newTruck._id } }
-        //);
+
+        await Profile.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { trucks: newTruck._id } }
+        );
 
         return newTruck;
       }
-
       throw new AuthenticationError(
         "You need to be logged in! from Query in resolvers - save Truck"
       );

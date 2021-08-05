@@ -5,6 +5,7 @@ import { QUERY_ME } from "../utils/queries";
 import DriverForm from "../components/DriverForm";
 import DriverInfo from "../components/DriverInfo";
 import TruckForm from "../components/TruckForm";
+import TruckInfo from "../components/TruckInfo";
 
 const Profile = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -24,6 +25,7 @@ const Profile = () => {
       <br></br>
       <div>
         <TruckForm />
+        <TruckInfo />
       </div>
     </div>
   );

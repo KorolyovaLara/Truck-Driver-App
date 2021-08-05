@@ -18,7 +18,20 @@ export const QUERY_ME = gql`
         rego
         model
         year
+        truckDriver
       }
+    }
+  }
+`;
+
+export const QUERY_TRUCKS = gql`
+  {
+    trucks {
+      _id
+      rego
+      model
+      year
+      truckDriver
     }
   }
 `;
