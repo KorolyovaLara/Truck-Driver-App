@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import DriverForm from "../components/DriverForm";
 import DriverInfo from "../components/DriverInfo";
+import TruckForm from "../components/TruckForm";
 
 const Profile = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -20,7 +21,10 @@ const Profile = () => {
         <DriverInfo />
         <DriverForm />
       </div>
-      <div></div>
+      <br></br>
+      <div>
+        <TruckForm />
+      </div>
     </div>
   );
 };

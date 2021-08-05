@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/react-hooks";
 import { SAVE_INFO } from "../utils/mutations";
 
 const DriverForm = () => {
@@ -61,7 +61,7 @@ const DriverForm = () => {
         <input
           placeholder="Your Phone Number"
           name="phoneNumber"
-          type="tel"
+          type="number"
           value={driverForm.phoneNumber}
           onChange={handleChange}
         />

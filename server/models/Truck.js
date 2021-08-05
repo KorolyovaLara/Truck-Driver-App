@@ -1,24 +1,22 @@
-const { Schema } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const truckSchema = new Schema({
-  truckId: {
-    type: String,
-    required: true,
-  },
   rego: {
     type: String,
     required: true,
+    trim: true,
   },
   model: {
     type: String,
     required: true,
+    trim: true,
   },
   year: {
-    type: Number,
-    min: 1980,
-    max: 2021,
+    type: String,
     required: true,
   },
 });
 
-module.exports = truckSchema;
+const Truck = model("Truck", truckSchema);
+
+module.exports = Truck;

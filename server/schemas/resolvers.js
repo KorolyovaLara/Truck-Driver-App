@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Profile } = require("../models");
+const { Profile, Truck, Driver } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -15,6 +15,12 @@ const resolvers = {
       throw new AuthenticationError(
         "You need to be logged in! from Query in resolvers"
       );
+    },
+    allTrucks: async () => {
+      return Truck.find();
+    },
+    allDrivers: async () => {
+      return Driver.find();
     },
   },
 
@@ -55,15 +61,19 @@ const resolvers = {
       );
     },
 
-    saveTruck: async (parent, { dataTruck }, context) => {
+    saveTruck: async (parent, { rego, model, year }, context) => {
       if (context.user) {
-        const updatedUser = await Profile.findOneAndUpdate(
-          { _id: context.user._id },
-          { $push: { trucks: dataTruck } },
-          { new: true }
-        );
+        const newTruck = await Truck.create({
+          rego,
+          model,
+          year,
+        });
+        // await Profile.findOneAndUpdate(
+        // { _id: context.user._id },
+        //{ $addToSet: { trucks: newTruck._id } }
+        //);
 
-        return updatedUser;
+        return newTruck;
       }
 
       throw new AuthenticationError(

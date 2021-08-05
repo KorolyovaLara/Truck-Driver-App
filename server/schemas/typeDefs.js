@@ -24,7 +24,7 @@ const typeDefs = gql`
   }
 
   type TruckInfo {
-    truckId: String
+    _id: ID
     rego: String
     model: String
     year: String
@@ -47,14 +47,16 @@ const typeDefs = gql`
   type Query {
     profiles: [Profile]!
     me: Profile
+    allTrucks: [TruckInfo]
+    allDrivers: [DriverInfo]
   }
 
   type Mutation {
     addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    saveInfo(dataDriver: DriverInput): Profile
-    saveTruck(dataTruck: TruckInput): Profile
-    deleteTruck(truckId: String!): Profile
+    saveInfo(dataDriver: DriverInput): DriverInfo
+    saveTruck(rego: String!, model: String!, year: String!): TruckInfo
+    deleteTruck(truckId: String!): TruckInfo
   }
 `;
 

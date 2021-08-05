@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 
 export const ADD_PROFILE = gql`
   mutation addProfile($name: String!, $email: String!, $password: String!) {
@@ -29,29 +29,22 @@ export const LOGIN_USER = gql`
 export const SAVE_INFO = gql`
   mutation saveInfo($dataDriver: DriverInput!) {
     saveInfo(dataDriver: $dataDriver) {
-      driver {
-        firstName
-        lastName
-        companyName
-        phoneNumber
-        driverLicence
-      }
+      firstName
+      lastName
+      companyName
+      phoneNumber
+      driverLicence
     }
   }
 `;
 
 export const SAVE_TRUCK = gql`
-  mutation saveTruck($dataTruck: TruckInput!) {
-    saveTruck(dataTruck: $dataTruck) {
+  mutation saveTruck($rego: String!, $model: String!, $year: String!) {
+    saveTruck(rego: $rego, model: $model, year: $year) {
       _id
-      name
-      email
-      trucks {
-        truckId
-        rego
-        model
-        year
-      }
+      rego
+      model
+      year
     }
   }
 `;

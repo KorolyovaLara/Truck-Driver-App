@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-const driverSchema = require("./Driver");
-const truckSchema = require("./Truck");
+const Driver = require("./Driver").schema;
 
 const profileSchema = new Schema({
   name: {
@@ -21,8 +20,13 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  driver: driverSchema,
-  trucks: [truckSchema],
+  driver: Driver,
+  trucks: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Truck",
+    },
+  ],
 });
 
 profileSchema.pre("save", async function (next) {

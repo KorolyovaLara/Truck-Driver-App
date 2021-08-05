@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const driverSchema = new Schema({
   firstName: {
@@ -23,4 +23,5 @@ const driverSchema = new Schema({
   },
 });
 
-module.exports = driverSchema;
+const Driver = model("Driver", driverSchema);
+module.exports = Driver;
