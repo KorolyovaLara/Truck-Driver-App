@@ -9,7 +9,6 @@ const resolvers = {
     },
 
     me: async (parent, args, context) => {
-      console.log("Problem");
       if (context.user) {
         return Profile.findOne({ _id: context.user._id });
       }

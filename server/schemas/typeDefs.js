@@ -19,29 +19,29 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     companyName: String
-    phoneNumber: Int
-    driverLicence: Int
+    phoneNumber: String
+    driverLicence: String
   }
 
   type TruckInfo {
     truckId: String
     rego: String
     model: String
-    year: Int
+    year: String
   }
 
   input DriverInput {
     firstName: String
     lastName: String
     companyName: String
-    phoneNumber: Int
-    driverLicence: Int
+    phoneNumber: String
+    driverLicence: String
   }
 
   input TruckInput {
     rego: String
     model: String
-    year: Int
+    year: String
   }
 
   type Query {

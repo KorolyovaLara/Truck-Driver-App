@@ -16,8 +16,11 @@ const Profile = () => {
   return (
     <div>
       <h2 className="card-header">YOUR = {user.name} = PROFILE</h2>
-      <DriverInfo />
-      <DriverForm />
+      <div>
+        <DriverInfo />
+        <DriverForm />
+      </div>
+      <div></div>
     </div>
   );
 };

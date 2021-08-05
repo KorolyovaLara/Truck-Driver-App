@@ -29,9 +29,6 @@ export const LOGIN_USER = gql`
 export const SAVE_INFO = gql`
   mutation saveInfo($dataDriver: DriverInput!) {
     saveInfo(dataDriver: $dataDriver) {
-      _id
-      name
-      email
       driver {
         firstName
         lastName

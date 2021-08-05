@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === "production") {
     app.listen(PORT, () => {
       console.log(`🌍  Now listening on port ${PORT}! 🌍 `);
       console.log(
-        `🚀🚀🚀 Server ready at http://localhost:${PORT}${server.graphqlPath} 🚀🚀🚀`
+        `🚀🚀🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
       );
     });
   });

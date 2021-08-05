@@ -11,7 +11,7 @@ const DriverForm = () => {
     driverLicence: "",
   });
 
-  const [saveInfo, { error }] = useMutation(SAVE_INFO);
+  const [saveInfo] = useMutation(SAVE_INFO);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,29 +21,16 @@ const DriverForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check if form has everything (as per react-bootstrap docs)
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
     try {
       const response = await saveInfo({
-        variables: { ...driverForm },
+        variables: { dataDriver: { ...driverForm } },
       });
       if (!response.ok) {
-        throw new Error("Something went wrong!");
+        throw new Error("Something went wrong on handleFormSubmit!");
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.log(err);
     }
-    setDriverForm({
-      firstName: "",
-      lastName: "",
-      companyName: "",
-      phoneNumber: "",
-      driverLicence: "",
-    });
   };
   return (
     <div>
@@ -89,7 +76,6 @@ const DriverForm = () => {
         <button style={{ cursor: "pointer" }} type="submit">
           Submit
         </button>
-        {error && <div>{error.message}</div>}
       </form>
     </div>
   );

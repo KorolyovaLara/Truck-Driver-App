@@ -4,7 +4,6 @@ import { QUERY_ME } from "../utils/queries";
 
 const DriverInfo = () => {
   const { loading, data } = useQuery(QUERY_ME);
-  console.log(data.me.driver);
   const driverData = data?.me.driver || {};
 
   // if data isn't here yet, say so

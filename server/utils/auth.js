@@ -5,13 +5,19 @@ const expiration = "10h";
 
 module.exports = {
   authMiddleware: function ({ req }) {
-    console.log("authMiddleware");
     let token = req.body.token || req.query.token || req.headers.authorization;
 
     if (req.headers.authorization) {
       token = token.split(" ").pop().trim();
     }
-    console.log("token", token);
+    //checking if token is passed
+    console.log(
+      `
+    ----------------------------------------------------------------------
+    THIS SHOULD BE PASSING TOKEN 
+    ===>`,
+      token
+    );
     if (!token) {
       return req;
     }
@@ -19,7 +25,14 @@ module.exports = {
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
-      console.log("data", data);
+      //checking if user data is passed
+      console.log(
+        `
+      ----------------------------------------------------------------------
+      HERE SHOULD BE USER DATA 
+      ===>`,
+        data
+      );
     } catch {
       console.log("Invalid token");
     }
