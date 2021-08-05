@@ -10,7 +10,10 @@ import TruckInfo from "../components/TruckInfo";
 const Profile = () => {
   const { loading, data } = useQuery(QUERY_ME);
   const user = data?.me || [];
+  //const driver = user.driver;
+  //const truck = user.trucks;
 
+  console.log("main", user);
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -18,6 +21,8 @@ const Profile = () => {
   return (
     <div>
       <h2 className="card-header">YOUR = {user.name} = PROFILE</h2>
+      <p1>{user.email}</p1>
+      <p1>{user.fullname}</p1>
       <div>
         <DriverInfo />
         <DriverForm />

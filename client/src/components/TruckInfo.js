@@ -8,40 +8,34 @@ import Auth from "../utils/auth";
 import { LOGIN_USER } from "../utils/mutations";
 
 const TruckInfo = () => {
-  const { truckDriver: userParam } = useParams;
-  const { loading, data } = useQuery(userParam ? QUERY_TRUCKS : QUERY_ME, {
-    variables: { truckDriver: userParam },
-  });
-  console.log("userParam =>", userParam);
-  const truck = data?.trucks;
+  const { loading, data } = useQuery(QUERY_ME);
 
-  if (Auth.loggedIn() && Auth.getProfile().data.name === userParam) {
-    return <div>See your Trucks below</div>;
-  }
+  const trucks = data?.me.trucks || [];
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  console.log(trucks);
   return (
     <div>
       <table>
-        <tbody>
+        <thead>
           <tr>
             <th>Truck ID</th>
-            <td>{truck}</td>
-          </tr>
-          <tr>
             <th>Truck Rego</th>
-            <td>{truck}</td>
-          </tr>
-          <tr>
             <th>Truck Model</th>
-            <td>{truck}</td>
-          </tr>
-          <tr>
             <th>Truck Year of Make</th>
-            <td>{truck}</td>
           </tr>
+        </thead>
+        <tbody>
+          {trucks.map((truck) => (
+            <tr key={truck._id}>
+              <td>{truck._id}</td>
+              <td>{truck.rego}</td>
+              <td>{truck.model}</td>
+              <td>{truck.year}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

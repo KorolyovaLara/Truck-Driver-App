@@ -5,23 +5,23 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     profiles: async () => {
-      return Profile.find({}).populate("trucks").populate("driver");
+      return Profile.find({}).populate("trucks");
     },
 
     me: async (parent, args, context) => {
       if (context.user) {
-        return Profile.findOne({ _id: context.user._id });
+        return Profile.findOne({ _id: context.user._id }).populate("trucks");
       }
       throw new AuthenticationError(
         "You need to be logged in! from Query in resolvers"
       );
     },
     driver: async (parent, { name }) => {
-      return Profile.findOne({ name }).map("trucks");
+      return Profile.findOne({ name }).map("trucks").populate();
     },
     trucks: async (parent, { name }) => {
       const params = name ? { name } : {};
-      return Truck.find(params).sort();
+      return Truck.find(params);
     },
 
     allTrucks: async () => {
@@ -53,16 +53,30 @@ const resolvers = {
       return { token, profile };
     },
 
-    saveInfo: async (parent, dataDriver, context) => {
+    saveInfo: async (parent, { dataDriver }, context) => {
       console.log("datadriver", dataDriver);
       if (context.user) {
-        const updatedUser = await Profile.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { driver: dataDriver } },
-          { new: true }
-        );
+        const profile = await Profile.findOne({ _id: context.user._id });
+        if (profile) {
+          let driverInfo;
+          if (profile.driver) {
+            driverInfo = await Driver.findOneAndUpdate(
+              { _id: profile.driver },
+              {
+                ...dataDriver,
+              }
+            );
 
-        return updatedUser;
+            return up;
+          } else {
+            driverInfo = await Driver.create({ ...dataDriver });
+            await Profile.findOneAndUpdate(
+              { _id: context.user._id },
+              { driver: driverInfo._id }
+            );
+          }
+          return driverInfo;
+        }
       }
 
       throw new AuthenticationError(
@@ -104,6 +118,13 @@ const resolvers = {
       throw new AuthenticationError(
         "You need to be logged in! from Mutaion in resolvers - Delete truck"
       );
+    },
+  },
+
+  Profile: {
+    async driver(parent, args, ctx, info) {
+      console.log(parent);
+      return Driver.findOne({ _id: parent.driver });
     },
   },
 };

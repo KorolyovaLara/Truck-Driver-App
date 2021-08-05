@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-const Driver = require("./Driver").schema;
 
 const profileSchema = new Schema({
   name: {
@@ -20,7 +19,9 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  driver: Driver,
+  driver: {
+    type: Schema.Types.ObjectId,
+  },
   trucks: [
     {
       type: Schema.Types.ObjectId,
