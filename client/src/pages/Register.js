@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { ADD_PROFILE } from "../utils/mutations";
-
 import Auth from "../utils/auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Register = () => {
   const [formState, setFormState] = useState({
@@ -39,58 +41,89 @@ const Register = () => {
     }
   };
 
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  }
+
+
+
   return (
-    <main>
+    <div class="container has-text-centered">
+      <h1>Register Page</h1>
       <div>
-        <div>
-          <h4>Register Page</h4>
-          <div>
-            {data ? (
-              <p>
-                Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
+        {data ? (
+          <p>
+            Success! You may now head <Link to="/">to your Profile Page.</Link>
+          </p>
+        ) : (
+          <form onSubmit={handleFormSubmit}>
+            <div class="field">
+              <label class="label">Nickname</label>
+              <div class="control has-icons-left">
                 <input
-                  className="form-input"
-                  placeholder="Your name"
+                  class="input"
+                  placeholder="Nickname"
                   name="name"
                   type="text"
                   value={formState.name}
                   onChange={handleChange}
                 />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control has-icons-left">
                 <input
-                  className="form-input"
-                  placeholder="Your email"
+                  class="input"
+                  placeholder="Email "
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control has-icons-left">
                 <input
-                  className="form-input"
-                  placeholder="******"
+                  class="input"
+                  placeholder="Password"
                   name="password"
-                  type="password"
+                  type={passwordShown ? "text" : "password"}
                   value={formState.password}
-                  onChange={handleChange}
-                />
+                  onChange={handleChange}/>
+                <i onClick={togglePasswordVisiblity}>{eye}</i>
+                <span class="icon is-small is-left"><i class="fas fa-key"></i></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
                 <button
-                  className="btn btn-block btn-info"
+                  class="button is-link"
                   style={{ cursor: "pointer" }}
                   type="submit"
-                >
+                  >
                   Submit
                 </button>
-              </form>
-            )}
+              </div>
+            </div>
+          </form>
+        )}
 
-            {error && <div>{error.message}</div>}
-          </div>
-        </div>
+        {error && <div class="tag is-danger">{error.message}</div>}
       </div>
-    </main>
+    </div>
   );
 };
 

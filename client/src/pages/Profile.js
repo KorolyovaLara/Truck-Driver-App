@@ -20,7 +20,7 @@ const Profile = () => {
 
   return (
     <div>
-      <h2 className="card-header">YOUR = {user.name} = PROFILE</h2>
+      <h2>YOUR = {user.name} = PROFILE</h2>
       <p1>{user.email}</p1>
       <p1>{user.fullname}</p1>
       <div>

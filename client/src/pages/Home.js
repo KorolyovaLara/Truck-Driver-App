@@ -3,17 +3,27 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <section>
+    <div class="container has-text-centered">
       <div>
-        <h1>Home Page</h1>
         <Link to="/login">
-          <button>LOGIN</button>
-        </Link>
-        <Link to="/register">
-          <button>REGISTER</button>
+          <button class="button is-fullwidth is-large is-warning is-outlined is-inverted">
+            <span>
+              <strong>LOG IN</strong>
+            </span>
+          </button>
         </Link>
       </div>
-    </section>
+      <br></br>
+      <div>
+        <Link to="/register">
+          <button class="button is-fullwidth is-large is-warning is-outlined">
+            <span>
+              <strong>REGISTER</strong>
+            </span>
+          </button>
+        </Link>
+      </div>
+    </div>
   );
 }
 
