@@ -17,7 +17,7 @@ const TruckInfo = () => {
 
   console.log(trucks);
   return (
-    <div>
+    <div class="table is-bordered is-striped is-narrow is-hoverable">
       <table>
         <thead>
           <tr>

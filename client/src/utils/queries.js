@@ -35,3 +35,4 @@ export const QUERY_TRUCKS = gql`
     }
   }
 `;
+

@@ -24,11 +24,13 @@ const Profile = () => {
 
       <section class="section">
         <DriverInfo />
+        <br></br>
         <DriverForm />
       </section>
       <br></br>
       <section class="section">
         <TruckForm />
+        <br></br>
         <TruckInfo />
       </section>
     </div>

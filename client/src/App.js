@@ -36,7 +36,7 @@ function App() {
           <section class="hero is-success is-fullheight">
             <Navbar />
             <Switch>
-              <div class="hero-body">
+              <div class="hero">
                 <PublicRoute path="/" exact component={Home} />
                 <PublicRoute path="/login" exact component={Login} />
                 <PublicRoute path="/register" exact component={Register} />
