@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { ADD_PROFILE } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -16,7 +15,6 @@ const Register = () => {
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
-  // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -26,7 +24,6 @@ const Register = () => {
     });
   };
 
-  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -45,8 +42,6 @@ const Register = () => {
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   }
-
-
 
   return (
     <div class="container has-text-centered">

@@ -35,42 +35,55 @@ const Login = (props) => {
   };
 
   return (
-    <main>
-      <div>
-        <div>
-          <h4>Login</h4>
-          <div>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="******"
-                name="password"
-                type="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button
-                className="btn btn-block btn-primary"
-                style={{ cursor: "pointer" }}
-                type="submit"
-                disabled={loading}
-              >
-                Submit
-              </button>
-            </form>
-            {error && <div>{error.message}</div>}
+    <div class="container has-text-centered">
+      <h4>Login Page</h4>
+      <form onSubmit={handleFormSubmit}>
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left">
+            <input
+              class="input"
+              placeholder="Your email"
+              name="email"
+              type="email"
+              value={formState.email}
+              onChange={handleChange}
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
           </div>
         </div>
-      </div>
-    </main>
+
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control has-icons-left">
+            <input
+              class="input"
+              placeholder="Please enter your password"
+              name="password"
+              type="password"
+              value={formState.password}
+              onChange={handleChange}
+            />
+            <span class="icon is-small is-left"><i class="fas fa-key"></i></span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button
+              class="button is-link"
+              style={{ cursor: "pointer" }}
+              type="submit"
+              disabled={loading}
+            >
+            Submit
+            </button>
+          </div>
+        </div>
+      </form>
+      {error && <div class="tag is-danger">{error.message}</div>}
+    </div>
   );
 };
 

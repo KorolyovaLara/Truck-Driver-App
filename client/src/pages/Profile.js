@@ -10,28 +10,27 @@ import TruckInfo from "../components/TruckInfo";
 const Profile = () => {
   const { loading, data } = useQuery(QUERY_ME);
   const user = data?.me || [];
-  //const driver = user.driver;
-  //const truck = user.trucks;
 
   console.log("main", user);
   if (loading) {
-    return <div>Loading...</div>;
+    return <div class="tag is-warning">Loading...</div>;
   }
 
   return (
-    <div>
-      <h2>YOUR = {user.name} = PROFILE</h2>
-      <p1>{user.email}</p1>
-      <p1>{user.fullname}</p1>
-      <div>
+    <div class="container has-text-centered">
+      <section class="section">
+        <h1 class="title">Welcome, {user.name} !</h1>
+      </section>
+
+      <section class="section">
         <DriverInfo />
         <DriverForm />
-      </div>
+      </section>
       <br></br>
-      <div>
+      <section class="section">
         <TruckForm />
         <TruckInfo />
-      </div>
+      </section>
     </div>
   );
 };
