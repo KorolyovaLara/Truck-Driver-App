@@ -17,22 +17,24 @@ const Profile = () => {
   }
 
   return (
-    <div class="container has-text-centered">
-      <section class="section">
-        <h1 class="title">Welcome, {user.name} !</h1>
-      </section>
+    <div class="hero">
+      <div class="container has-text-centered">
+        <div class="section">
+          <h1 class="title">Welcome, {user.name} !</h1>
+        </div>
 
-      <section class="section">
-        <DriverInfo />
+        <section class="section">
+          <DriverInfo />
+          <br></br>
+          <DriverForm />
+        </section>
         <br></br>
-        <DriverForm />
-      </section>
-      <br></br>
-      <section class="section">
-        <TruckForm />
-        <br></br>
-        <TruckInfo />
-      </section>
+        <section class="section">
+          <TruckForm />
+          <br></br>
+          <TruckInfo />
+        </section>
+      </div>
     </div>
   );
 };

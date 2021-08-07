@@ -16,15 +16,15 @@ const DriverInfo = () => {
   }
 
   return (
-<>
+  <>
     <div class="level ">
-      <div class="level-item has-text-centered">
+      <div class="level-item">
         <div class="content">
           <p class="subtitle is-6">First Name</p>
           <p class="title is-4">{driverData.firstName}</p>
         </div>
       </div>
-      <div class="level-item has-text-centered">
+      <div class="level-item">
         <div class="content">
           <p class="subtitle is-6">Last Name</p>
           <p class="title is-4">{driverData.lastName}</p>
@@ -32,13 +32,13 @@ const DriverInfo = () => {
       </div>
     </div>
     <div class="level">
-      <div class="level-item has-text-centered">
+      <div class="level-item">
         <div class="content">
           <p class="subtitle is-6">Email</p>
           <p class="title is-4">{userData.email}</p>
         </div>
       </div>
-      <div class="level-item has-text-centered">
+      <div class="level-item">
         <div class="content">
           <p class="subtitle is-6">Company Name</p>
           <p class="title is-4">{driverData.companyName}</p>
@@ -46,20 +46,20 @@ const DriverInfo = () => {
       </div>
     </div>
     <div class="level">
-      <div class="level-item has-text-centered">
+      <div class="level-item">
         <div class="content">
           <p class="subtitle is-6">Phone Number</p>
           <p class="title is-4">{driverData.phoneNumber}</p>
         </div>
       </div>
-      <div class="level-item has-text-centered">
+      <div class="level-item">
         <div class="content">
           <p class="subtitle is-6">Driver Licence</p>
           <p class="title is-4">{driverData.driverLicence}</p>
         </div>
       </div>   
     </div>  
-</>
+  </>
   );
 };
 
