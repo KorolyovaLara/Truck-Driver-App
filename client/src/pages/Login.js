@@ -36,6 +36,7 @@ const Login = (props) => {
   };
 
   return (
+    <div class="hero">
     <div class="container has-text-centered">
       <h4>Login Page</h4>
       <form onSubmit={handleFormSubmit}>
@@ -84,6 +85,7 @@ const Login = (props) => {
         </div>
       </form>
       {error && <div class="tag is-danger">{error.message}</div>}
+    </div>
     </div>
   );
 };

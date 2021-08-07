@@ -45,6 +45,7 @@ const Register = () => {
   }
 
   return (
+    <div class="hero">
     <div class="container has-text-centered">
       <h1>Register Page</h1>
       <div>
@@ -119,6 +120,7 @@ const Register = () => {
 
         {error && <div class="tag is-danger">{error.message}</div>}
       </div>
+    </div>
     </div>
   );
 };

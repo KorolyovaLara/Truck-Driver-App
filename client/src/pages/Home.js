@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
+    <div class="hero">
     <div class="container has-text-centered">
       <div>
         <Link to="/login">
@@ -23,6 +24,7 @@ function Home() {
           </button>
         </Link>
       </div>
+    </div>
     </div>
   );
 }
