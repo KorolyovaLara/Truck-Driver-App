@@ -10,7 +10,7 @@ module.exports = {
     if (req.headers.authorization) {
       token = token.split(" ").pop().trim();
     }
-    //checking if token is passed
+
     console.log(
       `
     ----------------------------------------------------------------------
@@ -25,7 +25,6 @@ module.exports = {
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
-      //checking if user data is passed
       console.log(
         `
       ----------------------------------------------------------------------

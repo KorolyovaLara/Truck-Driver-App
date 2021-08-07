@@ -1,11 +1,8 @@
 import React from "react";
-import { Redirect, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/react-hooks";
 
-import { QUERY_ME, QUERY_TRUCKS } from "../utils/queries";
+import { QUERY_ME } from "../utils/queries";
 
-import Auth from "../utils/auth";
-import { LOGIN_USER } from "../utils/mutations";
 
 const TruckInfo = () => {
   const { loading, data } = useQuery(QUERY_ME);

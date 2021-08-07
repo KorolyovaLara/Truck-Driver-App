@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+
 import Auth from "../utils/auth";
-import $ from "jquery";
 
 export default function Nav() {
   const history = useHistory();

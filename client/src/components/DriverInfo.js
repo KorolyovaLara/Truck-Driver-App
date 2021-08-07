@@ -1,5 +1,6 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/react-hooks";
+
 import { QUERY_ME } from "../utils/queries";
 
 const DriverInfo = () => {

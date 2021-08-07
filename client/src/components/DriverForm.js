@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
+
 import { SAVE_INFO } from "../utils/mutations";
-import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 
 const DriverForm = () => {
@@ -46,7 +46,7 @@ const DriverForm = () => {
   };
   return (
     <>
-      {driverInformation ? (      
+      {!driverInformation ? (      
         <button>Update details</button>
       ) : (
       <>

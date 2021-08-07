@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/react-hooks";
+
 import { SAVE_TRUCK } from "../utils/mutations";
 import Auth from "../utils/auth";
 

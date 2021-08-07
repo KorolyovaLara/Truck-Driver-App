@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/react-hooks";
+
 import { ADD_PROFILE } from "../utils/mutations";
+
 import Auth from "../utils/auth";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-const eye = <FontAwesomeIcon icon={faEye} />;
+
+
 
 const Register = () => {
   const [formState, setFormState] = useState({
@@ -97,7 +98,7 @@ const Register = () => {
                   type={passwordShown ? "text" : "password"}
                   value={formState.password}
                   onChange={handleChange}/>
-                <i onClick={togglePasswordVisiblity}>{eye}</i>
+                <i onClick={togglePasswordVisiblity} class="fas fa-eye"></i>
                 <span class="icon is-small is-left"><i class="fas fa-key"></i></span>
               </div>
             </div>

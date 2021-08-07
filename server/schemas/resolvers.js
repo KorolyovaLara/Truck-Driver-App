@@ -1,4 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
+
 const { Profile, Truck, Driver } = require("../models");
 const { signToken } = require("../utils/auth");
 
@@ -109,7 +110,7 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await Profile.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { trucks: { truckId: truckId } } },
+          { $pull: { trucks: { _id: truckId } } },
           { new: true }
         );
 
