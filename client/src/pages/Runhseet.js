@@ -69,6 +69,10 @@ const RunsheetForm = () => {
              onChange={handleChange}
            />
          </div>
+         <div className="field is-grouped has-text-weight-bold	">
+         <lable class="container">START</lable>
+         <lable class="container">FINISH</lable>
+         </div>
          <div className="field is-grouped">
            <input
              className="input is-warning is-rounded" 
