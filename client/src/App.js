@@ -26,7 +26,10 @@ const client = new ApolloClient({
       },
     });
   },
-  uri: "http://localhost:3001/graphql",
+  // LOCAL
+  //uri: "http://localhost:3001/graphql",
+  // HEROKU
+  uri: "/graphql",
 });
 
 function App() {
