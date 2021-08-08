@@ -20,6 +20,13 @@ export const QUERY_ME = gql`
         year
         truckDriver
       }
+      savedRunsheets {
+        date
+        startTime
+        finishTime
+        startOdometer
+        finishOdometer
+      }
     }
   }
 `;

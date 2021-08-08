@@ -39,7 +39,6 @@ const TruckInfo = () => {
       <table className="table is-bordered is-striped is-hoverable">
         <thead>
           <tr>
-            <th>Truck ID</th>
             <th>Truck Rego</th>
             <th>Truck Model</th>
             <th>Model Year</th>
@@ -49,7 +48,6 @@ const TruckInfo = () => {
         <tbody>
           {trucks.map((truck) => (
             <tr key={truck._id}>
-              <td>{truck._id}</td>
               <td>{truck.rego}</td>
               <td>{truck.model}</td>
               <td>{truck.year}</td>

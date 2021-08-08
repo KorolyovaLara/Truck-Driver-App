@@ -118,6 +118,33 @@ const resolvers = {
         "You need to be logged in! from Mutaion in resolvers - Delete truck"
       );
     },
+
+    saveRunsheet: async (parent, { dataRunsheet }, context) => {
+      if (context.user) {
+        const updatedUser = await Profile.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { savedRunsheets: dataRunsheet } },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    removeRunsheet: async (parent, { runsheetId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedRunsheets: { runsheetId: runsheetId } } },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 
   Profile: {

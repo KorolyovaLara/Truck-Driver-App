@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
+const runsheetSchema = require("./Runsheet");
 
 const profileSchema = new Schema({
   name: {
@@ -28,6 +29,7 @@ const profileSchema = new Schema({
       ref: "Truck",
     },
   ],
+  savedRunsheets: [runsheetSchema]
 });
 
 profileSchema.pre("save", async function (next) {

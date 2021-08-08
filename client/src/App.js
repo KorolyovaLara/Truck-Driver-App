@@ -14,6 +14,7 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Runsheet from "./pages/Runhseet"
 
 const client = new ApolloClient({
 
@@ -44,6 +45,7 @@ function App() {
               <PublicRoute path="/login" exact component={Login} />
               <PublicRoute path="/register" exact component={Register} />
               <PrivateRoute path="/profile" exact component={Profile} />
+              <PrivateRoute path="/runsheet" exact component={Runsheet} />
               <Route path="/about" exact component={About} />
               <Route path="/contact" exact component={Contact} />
             </Switch>

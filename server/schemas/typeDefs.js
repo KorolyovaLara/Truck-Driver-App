@@ -8,6 +8,7 @@ const typeDefs = gql`
     password: String
     driver: DriverInfo
     trucks: [TruckInfo]
+    savedRunsheets: [Runsheet]
   }
 
   type Auth {
@@ -39,6 +40,22 @@ const typeDefs = gql`
     truckDriver: String
   }
 
+  type Runsheet {
+    runsheetId: ID
+    date: String
+    startTime: String
+    finishTime: String
+    startOdometer: String
+    finishOdometer: String
+  }
+
+  input RunsheetInput {
+    date: String
+    startTime: String
+    finishTime: String
+    startOdometer: String
+    finishOdometer: String
+  }
  
   type Query {
     profiles: [Profile]!
@@ -54,6 +71,8 @@ const typeDefs = gql`
     saveInfo(dataDriver: DriverInput): DriverInfo
     saveTruck(rego: String!, model: String!, year: String!): TruckInfo
     deleteTruck(truckId: ID!): TruckInfo
+    saveRunsheet(dataRunsheet: RunsheetInput): Profile
+    removeRunsheet(runsheetId: ID!): Profile
   }
 `;
 

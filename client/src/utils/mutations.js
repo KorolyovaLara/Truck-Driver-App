@@ -62,3 +62,39 @@ export const DELETE_TRUCK = gql`
     }
   }
 `;
+
+export const SAVE_RUNSHEET = gql`
+  mutation saveRunsheet($dataRunsheet: BookInput!) {
+    saveRunsheet(dataRunsheet: $dataRunsheet) {
+      _id
+      name
+      email
+      savedRunsheets {
+        runsheetId
+        date
+        startTime
+        finishTime
+        startOdometer
+        finishOdometer
+      }
+    }
+  }
+`;
+
+export const REMOVE_RUNSHEET = gql`
+  mutation removeBook($runsheetId: String!) {
+    removeBook(runsheetId: $runsheetId) {
+      _id
+      name
+      email
+      savedRunsheets {
+        runsheetId
+        date
+        startTime
+        finishTime
+        startOdometer
+        finishOdometer
+      }
+    }
+  }
+`;

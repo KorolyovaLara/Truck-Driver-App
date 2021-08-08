@@ -22,48 +22,37 @@ const DriverInfo = () => {
 
   return (
   <>
-    <div className="level ">
-      <div className="level-item">
-        <div className="content">
-          <p className="subtitle is-6">First Name</p>
-          <p className="title is-4">{driverData.firstName}</p>
-        </div>
+  <div class="column"></div>
+    <div className="column">
+      <div className="content">
+        <p className="subtitle is-6 has-text-black">First Name</p>
+        <p className="title is-4">{driverData.firstName}</p>
       </div>
-      <div className="level-item">
-        <div className="content">
-          <p className="subtitle is-6">Last Name</p>
-          <p className="title is-4">{driverData.lastName}</p>
-        </div>
+      <div className="content">
+        <p className="subtitle is-6 has-text-black">Last Name</p>
+        <p className="title is-4">{driverData.lastName}</p>
       </div>
-    </div>
-    <div className="level">
-      <div className="level-item">
-        <div className="content">
-          <p className="subtitle is-6">Email</p>
-          <p className="title is-4">{userData.email}</p>
-        </div>
-      </div>
-      <div className="level-item">
-        <div className="content">
-          <p className="subtitle is-6">Company Name</p>
-          <p className="title is-4">{driverData.companyName}</p>
-        </div>
+      <div className="">
+        <p className="subtitle is-6 has-text-black">Email</p>
+        <p className="title is-4">{userData.email}</p>
       </div>
     </div>
-    <div className="level">
-      <div className="level-item">
-        <div className="content">
-          <p className="subtitle is-6">Phone Number</p>
-          <p className="title is-4">{driverData.phoneNumber}</p>
-        </div>
+
+    <div className="column">
+      <div className="content">
+        <p className="subtitle is-6 has-text-black">Company Name</p>
+        <p className="title is-4">{driverData.companyName}</p>
       </div>
-      <div className="level-item">
-        <div className="content">
-          <p className="subtitle is-6">Driver Licence</p>
-          <p className="title is-4">{driverData.driverLicence}</p>
-        </div>
-      </div>   
+      <div className="content">
+        <p className="subtitle is-6 has-text-black">Phone Number</p>
+        <p className="title is-4">{driverData.phoneNumber}</p>
+      </div>
+      <div className="content">
+        <p className="subtitle is-6 has-text-black">Driver Licence</p>
+        <p className="title is-4">{driverData.driverLicence}</p>
+      </div>
     </div>  
+    <div class="column"></div>
   </>
   );
 };

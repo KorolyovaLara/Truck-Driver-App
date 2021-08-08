@@ -23,9 +23,14 @@ const Profile = () => {
 
   return (
     <div className="hero has-text-centered">
-      <h1 className="title">Welcome, {user.name} !</h1>
       <div className="container">
+        <div className="title">Welcome, {user.name}!</div>
+      </div>
+      <br></br>
+      <div className="columns">
         <DriverInfo />
+        </div>
+      <div className="container">     
         <br></br>
         <DriverForm />
       </div>
