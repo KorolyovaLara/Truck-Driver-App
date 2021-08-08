@@ -12,18 +12,18 @@ export default function Nav() {
   };
   //NAVBAR ACTIVE BUTTON CHANGE
   return (
-    <div class="hero-head">
-      <header class="navbar">
-        <div class="container">
-          <strong class="navbar-item">Truck Driver App</strong>
+    <div className="hero-head">
+      <header className="navbar">
+        <div className="container">
+          <strong className="navbar-item">Truck Driver App</strong>
         </div>
 
         {Auth.loggedIn() ? (
           <>
-            <span class="navbar-item">
-              <a class="button is-danger" onClick={logout}>
-                <span class="icon">
-                  <i class="fas fa-truck"></i>
+            <span className="navbar-item">
+              <a className="button is-danger" onClick={logout}>
+                <span className="icon">
+                  <i className="fas fa-truck"></i>
                 </span>
                 <span>Logout</span>
               </a>
@@ -31,19 +31,19 @@ export default function Nav() {
           </>
         ) : (
           <>
-            <span class="navbar-item">
-              <a class="button is-success is-inverted is-active" href="/">
-                <span class="icon">
-                  <i class="fas fa-truck"></i>
+            <span className="navbar-item">
+              <a className="button is-success is-inverted is-active" href="/">
+                <span className="icon">
+                  <i className="fas fa-truck"></i>
                 </span>
                 <span>Home</span>
               </a>
             </span>
 
-            <a href="/contact" class="navbar-item">
+            <a href="/contact" className="navbar-item">
               Contact
             </a>
-            <a href="/about" class="navbar-item">
+            <a href="/about" className="navbar-item">
               About
             </a>
           </>

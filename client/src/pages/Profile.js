@@ -13,28 +13,32 @@ const Profile = () => {
 
   console.log("main", user);
   if (loading) {
-    return <div class="tag is-warning">Loading...</div>;
+    return (
+      <div  className="hero">
+        <div className="container">
+        <button className="button is-large is-warning is-loading">Loading...</button>
+        </div>
+      </div>);
   }
 
   return (
-    <div class="hero">
-      <div class="container has-text-centered">
-        <div class="section">
-          <h1 class="title">Welcome, {user.name} !</h1>
-        </div>
-
-        <section class="section">
-          <DriverInfo />
-          <br></br>
-          <DriverForm />
-        </section>
+    <div className="hero has-text-centered">
+      <h1 className="title">Welcome, {user.name} !</h1>
+      <div className="container">
+        <DriverInfo />
         <br></br>
-        <section class="section">
-          <TruckForm />
-          <br></br>
-          <TruckInfo />
-        </section>
+        <DriverForm />
       </div>
+      <br></br>
+      <div className="container">        
+        <TruckForm /> 
+        <br></br>
+        <TruckInfo />
+      </div>
+
+
+
+        <br></br>
     </div>
   );
 };

@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div class="hero">
-    <div class="container has-text-centered">
+    <div className="hero">
+    <div className="container has-text-centered">
       <div>
         <Link to="/login">
-          <button class="button is-fullwidth is-large is-warning is-outlined is-inverted">
+          <button className="button is-fullwidth is-large is-warning is-outlined is-inverted">
             <span>
               <strong>LOG IN</strong>
             </span>
@@ -17,7 +17,7 @@ function Home() {
       <br></br>
       <div>
         <Link to="/register">
-          <button class="button is-fullwidth is-large is-warning is-outlined">
+          <button className="button is-fullwidth is-large is-warning is-outlined">
             <span>
               <strong>REGISTER</strong>
             </span>

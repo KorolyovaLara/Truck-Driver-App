@@ -31,41 +31,44 @@ const TruckForm = () => {
           truckDriver: Auth.getProfile().data.name,
         },
       });
+      window.location.reload();
       console.log("entrydata ===>", data);
+      
     } catch (err) {
       console.error(err);
     }
   };
   return (
-    <div>
-      <form onSubmit={handleFormSubmit}>
+    <div >
+      <h1 className="has-text-black has-text-weight-medium">Add your truck details</h1>
+      <form onSubmit={handleFormSubmit} className="field is-grouped">
         <input
-          className="form-input"
+          className="input is-warning is-rounded " 
           placeholder="Rego"
           name="rego"
-          type="text"
+          required type="text"
           value={truckState.rego}
           onChange={handleChange}
         />
         <input
-          className="form-input"
+          className="input is-warning is-rounded" 
           placeholder="Model"
           name="model"
-          type="text"
+          required type="text"
           value={truckState.model}
           onChange={handleChange}
         />
         <input
-          className="form-input"
+          className="input is-warning is-rounded" 
           placeholder="Year"
           name="year"
-          type="number"
+          required type="number"
           value={truckState.year}
           onChange={handleChange}
         />
 
-        <button style={{ cursor: "pointer" }} type="submit">
-          Submit
+        <button className="button is-warning is-rounded is-outlined" style={{ cursor: "pointer" }} type="submit">
+        <i className="fas fa-plus"></i>
         </button>
       </form>
     </div>

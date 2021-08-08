@@ -4,9 +4,9 @@ import Auth from "../utils/auth";
 
 const Footer = () => {
   return (
-    <div class="hero-foot">
-      <nav class="tabs is-boxed is-fullwidth">
-        <div class="container">
+    <div className="hero-foot">
+      <nav className="tabs is-boxed is-fullwidth">
+        <div className="container">
           {Auth.loggedIn() ? (
             <ul>
               <li>

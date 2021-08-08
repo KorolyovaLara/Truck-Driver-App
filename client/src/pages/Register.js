@@ -45,8 +45,8 @@ const Register = () => {
   }
 
   return (
-    <div class="hero">
-    <div class="container has-text-centered">
+    <div className="hero">
+    <div className="container has-text-centered">
       <h1>Register Page</h1>
       <div>
         {data ? (
@@ -55,59 +55,59 @@ const Register = () => {
           </p>
         ) : (
           <form onSubmit={handleFormSubmit}>
-            <div class="field">
-              <label class="label">Nickname</label>
-              <div class="control has-icons-left">
+            <div className="field">
+              <label className="label">Nickname</label>
+              <div className="control has-icons-left">
                 <input
-                  class="input"
+                  className="input"
                   placeholder="Nickname"
                   name="name"
                   type="text"
                   value={formState.name}
                   onChange={handleChange}
                 />
-                <span class="icon is-small is-left">
-                  <i class="fas fa-user"></i>
+                <span className="icon is-small is-left">
+                  <i className="fas fa-user"></i>
                 </span>
               </div>
             </div>
 
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control has-icons-left">
+            <div className="field">
+              <label className="label">Email</label>
+              <div className="control has-icons-left">
                 <input
-                  class="input"
+                  className="input"
                   placeholder="Email "
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
-                <span class="icon is-small is-left">
-                  <i class="fas fa-envelope"></i>
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope"></i>
                 </span>
               </div>
             </div>
 
-            <div class="field">
-              <label class="label">Password</label>
-              <div class="control has-icons-left">
+            <div className="field">
+              <label className="label">Password</label>
+              <div className="control has-icons-left">
                 <input
-                  class="input"
+                  className="input"
                   placeholder="Password"
                   name="password"
                   type={passwordShown ? "text" : "password"}
                   value={formState.password}
                   onChange={handleChange}/>
-                <i onClick={togglePasswordVisiblity} class="fas fa-eye"></i>
-                <span class="icon is-small is-left"><i class="fas fa-key"></i></span>
+                <i onClick={togglePasswordVisiblity} className="fas fa-eye"></i>
+                <span className="icon is-small is-left"><i className="fas fa-key"></i></span>
               </div>
             </div>
 
-            <div class="field">
-              <div class="control">
+            <div className="field">
+              <div className="control">
                 <button
-                  class="button is-link"
+                  className="button is-link"
                   style={{ cursor: "pointer" }}
                   type="submit"
                   >
@@ -118,7 +118,7 @@ const Register = () => {
           </form>
         )}
 
-        {error && <div class="tag is-danger">{error.message}</div>}
+        {error && <div className="tag is-danger">{error.message}</div>}
       </div>
     </div>
     </div>

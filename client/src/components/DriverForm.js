@@ -20,7 +20,12 @@ const DriverForm = () => {
 
   console.log("main", driverInformation);
   if (loading) {
-    return <div class="tag is-warning">Loading...</div>;
+    return (
+      <div  className="hero">
+        <div className="container">
+        <button className="button is-large is-warning is-loading">Loading...</button>
+        </div>
+      </div>);
   }
 
 
@@ -33,11 +38,12 @@ const DriverForm = () => {
     event.preventDefault();
 
     try {
-      const response = await saveInfo({
+      const { data } = await saveInfo({
         variables: { dataDriver: { ...driverForm } },
       });
-      console.log("response", response);
-      if (!response.ok) {
+      console.log("data", data);
+      window.location.reload();
+      if (!data.ok) {
         throw new Error("Something went wrong on handleFormSubmit!");
       }
     } catch (err) {
@@ -45,57 +51,200 @@ const DriverForm = () => {
     }
   };
   return (
-    <>
-      {!driverInformation ? (      
-        <button>Update details</button>
-      ) : (
-      <>
-        <h4>Add your driver details below</h4>
+    <div>
+      {driverInformation.firstName ? (      
+        <>
+        <div  className="dropdown is-hoverable">
+          <div className="dropdown-trigger">
+            <button className="button is-warning" aria-haspopup="true" aria-controls="dropdown-menu">
+              <span>Update</span>
+              <span className="icon is-small">
+              <i className="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div className="dropdown-menu" id="dropdown-menu" role="menu">
+          <div className="dropdown-content">
+          <form onSubmit={handleFormSubmit} className="field" >
+          <div className="control has-icons-left">
+            <input
+              className="input is-link"
+              placeholder="First Name"
+              name="firstName"
+              required type="text"
 
-        <form onSubmit={handleFormSubmit}>
+              value={driverForm.firstName}
+              onChange={handleChange}
+            />
+            <span className="icon is-left">
+            <i className="fas fa-user-edit"></i>
+            </span>
+          </div>
+
+          <div className="control has-icons-left">
+            <input
+              className="input is-link"
+              placeholder="Last Name"
+              name="lastName"
+              required type="text"
+
+              value={driverForm.lastName}
+              onChange={handleChange}
+            />
+            <span className="icon is-left">
+              <i className="fas fa-users"></i>
+            </span>
+          </div>
+
+          <div className="control has-icons-left">
           <input
-            placeholder="Your First Name"
-            name="firstName"
-            type="text"
-            value={driverForm.firstName}
-            onChange={handleChange}
-          />
-          <input
-            placeholder="Your Last Name"
-            name="lastName"
-            type="text"
-            value={driverForm.lastName}
-            onChange={handleChange}
-          />
-          <input
-            placeholder="Your Company Name"
+            className="input is-link"
+            placeholder="Company Name"
             name="companyName"
-            type="text"
+            required type="text"
             value={driverForm.companyName}
             onChange={handleChange}
           />
+           <span className="icon is-left">
+           <i className="fas fa-briefcase"></i>
+            </span>
+          </div>
+
+          <div className="control has-icons-left">
           <input
-            placeholder="Your Phone Number"
+            className="input is-link"
+            placeholder="Phone XXXX-XXX-XXX"
             name="phoneNumber"
-            type="number"
+            required type="tel"
+            pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
             value={driverForm.phoneNumber}
             onChange={handleChange}
           />
+            <span className="icon is-left">
+            <i className="fas fa-phone"></i>
+            </span>
+          </div>
+
+          <div className="control has-icons-left">
           <input
-            placeholder="Your Driver's Licence Number"
+            className="input is-link"
+            placeholder="Driver's Licence"
             name="driverLicence"
-            type="number"
+            required type="tel"
+            pattern="[0-9]+"
             value={driverForm.driverLicence}
             onChange={handleChange}
           />
-  
-          <button style={{ cursor: "pointer" }} type="submit">
+           <span className="icon is-left">
+           <i className="far fa-id-badge"></i>
+            </span>
+          </div>
+
+          <div>
+          <button className="button is-link is-outlined" style={{ cursor: "pointer" }} required type="submit">
+            UPDATE
+          </button>
+          </div>
+
+        </form>
+          </div>
+
+            
+            
+
+          </div>
+
+        </div>
+        </>
+      ) : (
+      <>
+      <h1 className="has-text-black has-text-weight-medium">Add your details</h1>
+
+        <form onSubmit={handleFormSubmit} className="field" >
+          <div className="control has-icons-left">
+            <input
+              className="input is-link"
+              placeholder="Your First Name"
+              name="firstName"
+              required type="text"
+
+              value={driverForm.firstName}
+              onChange={handleChange}
+            />
+            <span className="icon is-left">
+            <i className="fas fa-user-edit"></i>
+            </span>
+          </div>
+
+          <div className="control has-icons-left">
+            <input
+              className="input is-link"
+              placeholder="Your Last Name"
+              name="lastName"
+              required type="text"
+
+              value={driverForm.lastName}
+              onChange={handleChange}
+            />
+            <span className="icon is-left">
+              <i className="fas fa-users"></i>
+            </span>
+          </div>
+
+          <div className="control has-icons-left">
+          <input
+            className="input is-link"
+            placeholder="Your Company Name"
+            name="companyName"
+            required type="text"
+            value={driverForm.companyName}
+            onChange={handleChange}
+          />
+           <span className="icon is-left">
+           <i className="fas fa-briefcase"></i>
+            </span>
+          </div>
+
+          <div className="control has-icons-left">
+          <input
+            className="input is-link"
+            placeholder="Your Phone Number XXXX-XXX-XXX"
+            name="phoneNumber"
+            required type="tel"
+            pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+            value={driverForm.phoneNumber}
+            onChange={handleChange}
+          />
+            <span className="icon is-left">
+            <i className="fas fa-phone"></i>
+            </span>
+          </div>
+
+          <div className="control has-icons-left">
+          <input
+            className="input is-link"
+            placeholder="Your Driver's Licence Number"
+            name="driverLicence"
+            required type="tel"
+            pattern="[0-9]+"
+            value={driverForm.driverLicence}
+            onChange={handleChange}
+          />
+           <span className="icon is-left">
+           <i className="far fa-id-badge"></i>
+            </span>
+          </div>
+
+          <div>
+          <button className="button is-link is-outlined" style={{ cursor: "pointer" }} required type="submit">
             Submit
           </button>
+          </div>
+
         </form>
       </>
       )}
-    </>
+    </div>
   );
 };
 

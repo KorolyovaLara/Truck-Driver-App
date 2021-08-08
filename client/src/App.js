@@ -27,7 +27,7 @@ const client = new ApolloClient({
     });
   },
   // LOCAL
-  //uri: "http://localhost:3001/graphql",
+  // uri: "http://localhost:3001/graphql",
   // HEROKU
   uri: "/graphql",
 });
@@ -37,7 +37,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <section class="hero is-success is-fullheight">
+          <section className="hero is-success is-fullheight">
             <Navbar />
             <Switch>
               <PublicRoute path="/" exact component={Home} />

@@ -14,11 +14,11 @@ const driverSchema = new Schema({
     required: true,
   },
   phoneNumber: {
-    type: Number,
+    type: String,
     required: true,
   },
   driverLicence: {
-    type: Number,
+    type: String,
     required: true,
   },
 });

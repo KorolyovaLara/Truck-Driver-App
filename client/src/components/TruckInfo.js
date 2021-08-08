@@ -9,28 +9,33 @@ const TruckInfo = () => {
 
   const trucks = data?.me.trucks || [];
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div  className="hero">
+        <div className="container">
+        <button className="button is-large is-warning is-loading">Loading...</button>
+        </div>
+      </div>);
   }
 
   console.log(trucks);
   return (
-    <div class="table is-bordered is-striped is-narrow is-hoverable">
-      <table>
+    <div className="hero">
+      <table className="table is-bordered is-striped is-hoverable">
         <thead>
           <tr>
-            <th>Truck ID</th>
             <th>Truck Rego</th>
             <th>Truck Model</th>
-            <th>Truck Year of Make</th>
+            <th>Model Year</th>
+            <th><i className="fas fa-wrench"></i></th>
           </tr>
         </thead>
         <tbody>
           {trucks.map((truck) => (
             <tr key={truck._id}>
-              <td>{truck._id}</td>
               <td>{truck.rego}</td>
               <td>{truck.model}</td>
               <td>{truck.year}</td>
+              <td><button className="button is-danger is-outlined"><i className="fas fa-trash-alt"></i></button></td>
             </tr>
           ))}
         </tbody>
