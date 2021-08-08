@@ -7,7 +7,7 @@ function About() {
         <img src="/images/driver_app_banner1_transparent.png" alt="" />
       </figure>
       <div className="container has-text-centered	">
-        <h1 className="title">Contact</h1>
+        <h1 className="title">About</h1>
         <p className="subtitle">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever

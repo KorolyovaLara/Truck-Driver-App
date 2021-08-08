@@ -17,14 +17,9 @@ const resolvers = {
         "You need to be logged in! from Query in resolvers"
       );
     },
-    driver: async (parent, { name }) => {
-      return Profile.findOne({ name }).map("trucks").populate();
+    truck: async (parent, { truckId }) => {
+      return Truck.findOne({ _id: truckId });
     },
-    trucks: async (parent, { name }) => {
-      const params = name ? { name } : {};
-      return Truck.find(params);
-    },
-
     allTrucks: async () => {
       return Truck.find();
     },
@@ -108,13 +103,16 @@ const resolvers = {
 
     deleteTruck: async (parent, { truckId }, context) => {
       if (context.user) {
-        const updatedUser = await Profile.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { trucks: { _id: truckId } } },
-          { new: true }
-        );
+        const truck = await Truck.findOneAndUpdate({ 
+          _id: truckId,
+          truckDriver: context.user.name
+          });
 
-        return updatedUser;
+          await Profile.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { trucks: truck._id  }},
+          );
+        return truck;
       }
       throw new AuthenticationError(
         "You need to be logged in! from Mutaion in resolvers - Delete truck"

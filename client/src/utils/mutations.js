@@ -51,13 +51,10 @@ export const SAVE_TRUCK = gql`
 `;
 
 export const DELETE_TRUCK = gql`
-  mutation deleteTruck($truckId: String!) {
+  mutation deleteTruck($truckId: ID!) {
     deleteTruck(truckId: $truckId) {
-      _id
-      name
-      email
       trucks {
-        truckId
+        _id
         rego
         model
         year

@@ -23,6 +23,14 @@ const typeDefs = gql`
     driverLicence: String
   }
 
+ input DriverInput {
+    firstName: String
+    lastName: String
+    companyName: String
+    phoneNumber: String
+    driverLicence: String
+  }
+
   type TruckInfo {
     _id: ID
     rego: String
@@ -31,25 +39,11 @@ const typeDefs = gql`
     truckDriver: String
   }
 
-  input DriverInput {
-    firstName: String
-    lastName: String
-    companyName: String
-    phoneNumber: String
-    driverLicence: String
-  }
-
-  input TruckInput {
-    rego: String
-    model: String
-    year: String
-  }
-
+ 
   type Query {
     profiles: [Profile]!
     me: Profile
-    driver: Profile
-    trucks: [TruckInfo]
+    truck(truckId: ID!): TruckInfo
     allTrucks: [TruckInfo]
     allDrivers: [DriverInfo]
   }
@@ -59,7 +53,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     saveInfo(dataDriver: DriverInput): DriverInfo
     saveTruck(rego: String!, model: String!, year: String!): TruckInfo
-    deleteTruck(truckId: String!): TruckInfo
+    deleteTruck(truckId: ID!): TruckInfo
   }
 `;
 
