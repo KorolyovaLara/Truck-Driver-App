@@ -22,8 +22,6 @@ const TruckForm = () => {
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
     try {
       const { data } = await saveTruck({
         variables: {

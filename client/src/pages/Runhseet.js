@@ -35,28 +35,82 @@ const RunsheetForm = () => {
     };
 
     const handleRunsheetSubmit = async (event) => {
-        event.preventDefault();
-    
         try {
           const { data } = await saveRunsheet({
-            variables: { dataRunsheet: { ...runsheetForm } },
-          });
-          window.location.reload();
+            variables: { 
+              dataRunsheet: { ...runsheetForm }}});
+              
           console.log("data", data);
 
         } catch (err) {
           console.log(err);
         }
     };
-    
-    return (
-        <>
-        <div className="hero-main has-text-centered">
-        <div className="title">RUNSHEET</div> 
+    const today = new Date();
+    const theDay = 'Today:' + ' ' + today.getDate() + '-' + (today.getMonth() + 1) + '-'  + today.getFullYear() 
+    const theTime = 'Time:' + ' ' + today.getHours() + ':' + today.getMinutes()
 
-        </div>
-        </>
-    ); 
-}
+  return (
+    <div className="hero has-text-centered">
+      <div className="container">
+        <h2 className="title">RUNSHEET</h2> 
+        <h3 className="title is-5">{ theDay }</h3>
+        <h3 className="title is-5">{ theTime }</h3>
+      </div>
+      <br></br>
+      <form onSubmit={handleRunsheetSubmit} className="container">
+        <div className="field is-grouped">
+           <input
+             className="input is-warning is-rounded " 
+             placeholder="Date"
+             name="date"
+             required type="date"
+             value={runsheetForm.date}
+             onChange={handleChange}
+           />
+         </div>
+         <div className="field is-grouped">
+           <input
+             className="input is-warning is-rounded" 
+             placeholder="Start Time"
+             name="startTime"
+             required type="time"
+             value={runsheetForm.startTime}
+             onChange={handleChange}
+           />
+           <input
+             className="input is-warning is-rounded" 
+             placeholder="Finish Time"
+             name="finishTime"
+             required type="time"
+             value={runsheetForm.finishTime}
+             onChange={handleChange}
+           />
+         </div>
+         <div className="field is-grouped">
+           <input
+             className="input is-warning is-rounded" 
+             placeholder="Start Odometer"
+             name="startOdometer"
+             required type="number"
+             value={runsheetForm.startOdometer}
+             onChange={handleChange}
+           />
+           <input
+             className="input is-warning is-rounded" 
+             placeholder="Finish Odometer"
+             name="finishOdometer"
+             required type="number"
+             value={runsheetForm.finishOdometer}
+             onChange={handleChange}
+           />
+         </div>
+         <button className="button is-large is-warning is-rounded is-outlined" style={{ cursor: "pointer" }} type="submit">
+           SAVE
+         </button>
+      </form>
+    </div>
+  ); 
+};
 
-    export default RunsheetForm;
+export default RunsheetForm;

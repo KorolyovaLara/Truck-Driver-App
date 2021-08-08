@@ -35,7 +35,6 @@ const DriverForm = () => {
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
 
     try {
       const { data } = await saveInfo({

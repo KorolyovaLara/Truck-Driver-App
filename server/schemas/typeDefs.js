@@ -41,7 +41,7 @@ const typeDefs = gql`
   }
 
   type Runsheet {
-    runsheetId: ID
+    _id: ID
     date: String
     startTime: String
     finishTime: String

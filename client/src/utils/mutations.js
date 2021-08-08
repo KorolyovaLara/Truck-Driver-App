@@ -64,13 +64,13 @@ export const DELETE_TRUCK = gql`
 `;
 
 export const SAVE_RUNSHEET = gql`
-  mutation saveRunsheet($dataRunsheet: BookInput!) {
+  mutation saveRunsheet($dataRunsheet: RunsheetInput!) {
     saveRunsheet(dataRunsheet: $dataRunsheet) {
       _id
       name
       email
       savedRunsheets {
-        runsheetId
+        _id
         date
         startTime
         finishTime
@@ -82,13 +82,13 @@ export const SAVE_RUNSHEET = gql`
 `;
 
 export const REMOVE_RUNSHEET = gql`
-  mutation removeBook($runsheetId: String!) {
-    removeBook(runsheetId: $runsheetId) {
+  mutation removeRunsheet($runsheetId: ID!) {
+    removeRunsheet(runsheetId: $runsheetId) {
       _id
       name
       email
       savedRunsheets {
-        runsheetId
+        _id
         date
         startTime
         finishTime
