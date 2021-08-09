@@ -22,7 +22,7 @@ const DriverInfo = () => {
 
   return (
   <>
-  <div class="column"></div>
+  <div className="column"></div>
     <div className="column">
       <div className="content">
         <p className="subtitle is-6 has-text-black">First Name</p>
@@ -52,7 +52,7 @@ const DriverInfo = () => {
         <p className="title is-4">{driverData.driverLicence}</p>
       </div>
     </div>  
-    <div class="column"></div>
+    <div className="column"></div>
   </>
   );
 };

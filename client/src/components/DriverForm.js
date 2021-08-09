@@ -146,13 +146,8 @@ const DriverForm = () => {
           </div>
 
         </form>
-          </div>
-
-            
-            
-
-          </div>
-
+        </div>
+        </div>
         </div>
         </>
       ) : (

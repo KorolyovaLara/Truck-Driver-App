@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="hero">
+    <div className="hero-main">
     <div className="container has-text-centered">
       <div>
         <Link to="/login">
@@ -13,6 +13,16 @@ function Home() {
             </span>
           </button>
         </Link>
+      </div>
+      <br></br>
+      <div>
+      <i className="fas fa-truck"></i> ____
+      <i className="fas fa-traffic-light"></i> ____
+      <i className="fas fa-truck"></i> ____
+      <i className="fas fa-pallet"></i> ____
+      <i className="fas fa-truck"></i> ____
+      <i className="fas fa-truck-loading"></i> ____
+      <i className="fas fa-truck"></i>
       </div>
       <br></br>
       <div>

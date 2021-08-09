@@ -2,17 +2,37 @@ import React from "react";
 
 function About() {
   return (
-    <div className="hero-main">
+    <div className="hero">
       <figure className="image">
-        <img src="/images/driver_app_banner1_transparent.png" alt="" />
+        <img src="/images/driver_app_banner1_transparent.png" alt="banner of trucks, map, boxes, pallets, driver and loader" />
       </figure>
-      <div className="container has-text-centered	">
-        <h1 className="title">About</h1>
+      <div className="container">
+        <h1 className="title has-text-centered">About Me and this Application</h1>
+        <div className="columns">
+          <div className="column is-2">
+          <figure className="image">
+            <img src="/images/hey2.png" alt="banner with word Hey" />
+          </figure>
+          </div>
+          <div className="column has-text-left is-10">
+            <p className="subtitle mb-0 mt-3">My name is Lara.</p>
+            <p className="subtitle mb-0">A web developer by passion.</p>
+            <p className="subtitle mb-0">​Transport and Operations specialist by the carrier.</p>
+            <p className="subtitle mb-0">With bachelor​ degrees in Business (Accounting) and in Economics (Marine Transport)​.</p>
+          </div>
+        </div>
+
+
         <p className="subtitle">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          The <strong>Truck Driver App </strong>is created by me in aim to help drivers to move to the digital world from paper and pen.
+          Helping drivers to keep all information accessible at any time about their runs and trucks.
+   
+        </p>
+
+        <p className="subtitle">
+          Imagine no more scanning paperwork to email to other people, but instead just a simple screenshot of the summary page for the week or a specific day!
+          And it all on your phone. 
+          More than that, this app is accessible on any device.
         </p>
       </div>
     </div>
