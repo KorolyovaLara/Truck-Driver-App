@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
 import Auth from "../utils/auth";
@@ -39,8 +39,6 @@ const RunsheetForm = () => {
           const { data } = await saveRunsheet({
             variables: { 
               dataRunsheet: { ...runsheetForm }}});
-              
-          console.log("data", data);
 
         } catch (err) {
           console.log(err);

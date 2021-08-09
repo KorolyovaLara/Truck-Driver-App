@@ -18,7 +18,6 @@ const DriverForm = () => {
   const { loading, data } = useQuery(QUERY_ME);
   const driverInformation = data?.me.driver || [];
 
-  console.log("main", driverInformation);
   if (loading) {
     return (
       <div  className="hero">
@@ -28,20 +27,16 @@ const DriverForm = () => {
       </div>);
   }
 
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setDriverForm({ ...driverForm, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
-
     try {
       const { data } = await saveInfo({
         variables: { dataDriver: { ...driverForm } },
       });
-      console.log("data", data);
-      window.location.reload();
       if (!data.ok) {
         throw new Error("Something went wrong on handleFormSubmit!");
       }

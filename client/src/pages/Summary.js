@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import React from "react";
+import { useQuery } from "@apollo/react-hooks";
 
-import Auth from "../utils/auth";
-import { SAVE_RUNSHEET } from "../utils/mutations";
+
 import { QUERY_ME } from "../utils/queries";
 
 const SummaryForm = () => {
@@ -22,7 +21,7 @@ const SummaryForm = () => {
       }
 
     return (
-        <div className="hero has-text-centered">
+      <div className="hero has-text-centered">
         <div className="container">
             <h1 className="title"> Runsheets Summary</h1>
           <table className="table is-bordered is-striped is-hoverable is-narrow">
@@ -49,11 +48,8 @@ const SummaryForm = () => {
               ))}
             </tbody>
           </table>
-
-
         </div>
-
-        </div>
+      </div>
       );
     };
 

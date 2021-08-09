@@ -11,7 +11,6 @@ const Profile = () => {
   const { loading, data } = useQuery(QUERY_ME);
   const user = data?.me || [];
 
-  console.log("main", user);
   if (loading) {
     return (
       <div  className="hero">
@@ -27,23 +26,23 @@ const Profile = () => {
         <div className="title">Welcome, {user.name}!</div>
       </div>
       <br></br>
+
       <div className="columns">
         <DriverInfo />
-        </div>
-      <div className="container">     
-        <br></br>
+      </div>
+      <br></br>
+
+      <div className="section">     
         <DriverForm />
       </div>
       <br></br>
+
       <div className="container">        
         <TruckForm /> 
         <br></br>
         <TruckInfo />
       </div>
 
-
-
-        <br></br>
     </div>
   );
 };

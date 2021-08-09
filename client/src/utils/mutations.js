@@ -66,9 +66,6 @@ export const DELETE_TRUCK = gql`
 export const SAVE_RUNSHEET = gql`
   mutation saveRunsheet($dataRunsheet: RunsheetInput!) {
     saveRunsheet(dataRunsheet: $dataRunsheet) {
-      _id
-      name
-      email
       savedRunsheets {
         _id
         date
@@ -84,9 +81,6 @@ export const SAVE_RUNSHEET = gql`
 export const REMOVE_RUNSHEET = gql`
   mutation removeRunsheet($runsheetId: ID!) {
     removeRunsheet(runsheetId: $runsheetId) {
-      _id
-      name
-      email
       savedRunsheets {
         _id
         date

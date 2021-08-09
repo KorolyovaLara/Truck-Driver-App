@@ -29,8 +29,6 @@ const TruckForm = () => {
           truckDriver: Auth.getProfile().data.name,
         },
       });
-      window.location.reload();
-      console.log("entrydata ===>", data);
       
     } catch (err) {
       console.error(err);

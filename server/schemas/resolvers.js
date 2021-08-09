@@ -50,7 +50,6 @@ const resolvers = {
     },
 
     saveInfo: async (parent, { dataDriver }, context) => {
-      console.log("datadriver", dataDriver);
       if (context.user) {
         const profile = await Profile.findOne({ _id: context.user._id });
         if (profile) {
@@ -149,7 +148,6 @@ const resolvers = {
 
   Profile: {
     async driver(parent, args, ctx, info) {
-      console.log(parent);
       return Driver.findOne({ _id: parent.driver });
     },
   },

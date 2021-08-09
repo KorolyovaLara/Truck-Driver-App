@@ -8,9 +8,6 @@ const DriverInfo = () => {
   const driverData = data?.me.driver || {};
   const userData = data?.me || {};
 
-  console.log("driver data", driverData);
-
-  // if data isn't here yet, say so
   if (loading) {
     return (
       <div  className="hero">

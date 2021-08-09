@@ -18,8 +18,6 @@ const TruckInfo = () => {
       </div>);
   }
 
-  console.log(trucks);
-
   const [deleteTruck] = useMutation(DELETE_TRUCK);
     // create function that accepts the book's mongo _id value as param and deletes the book from the database
     const handleDeleteTruck = async (truckId) => {
