@@ -53,13 +53,11 @@ export const SAVE_TRUCK = gql`
 export const DELETE_TRUCK = gql`
   mutation deleteTruck($truckId: ID!) {
     deleteTruck(truckId: $truckId) {
-      trucks {
         _id
         rego
         model
         year
-      }
-    }
+          }
   }
 `;
 
@@ -81,14 +79,12 @@ export const SAVE_RUNSHEET = gql`
 export const REMOVE_RUNSHEET = gql`
   mutation removeRunsheet($runsheetId: ID!) {
     removeRunsheet(runsheetId: $runsheetId) {
-      savedRunsheets {
         _id
         date
         startTime
         finishTime
         startOdometer
         finishOdometer
-      }
     }
   }
 `;

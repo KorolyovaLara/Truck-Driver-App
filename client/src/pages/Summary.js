@@ -1,8 +1,9 @@
 import React from "react";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 
 
 import { QUERY_ME } from "../utils/queries";
+import { REMOVE_RUNSHEET } from "../utils/mutations";
 
 const SummaryForm = () => {
 
@@ -20,6 +21,7 @@ const SummaryForm = () => {
           </div>);
       }
 
+
     return (
       <div className="hero has-text-centered">
         <div className="container">
@@ -32,7 +34,7 @@ const SummaryForm = () => {
                 <th>Finish Time</th>
                 <th>Start Odometer</th>
                 <th>Finish Odometer</th>
-                <th><i className="fas fa-wrench"></i></th>
+
               </tr>
             </thead>
             <tbody>
@@ -43,7 +45,6 @@ const SummaryForm = () => {
                   <td>{runsheet.finishTime}</td>
                   <td>{runsheet.startOdometer}</td>
                   <td>{runsheet.finishOdometer}</td>
-                  <td><button className="button is-danger is-outlined"  onClick={() => handleDeleteTruck(runsheet._id)}><i className="fas fa-trash-alt"></i></button></td>
                 </tr>
               ))}
             </tbody>

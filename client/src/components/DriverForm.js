@@ -134,7 +134,7 @@ const DriverForm = () => {
             </span>
           </div>
 
-          <div>
+          <div className="mt-2">
           <button className="button is-link is-outlined" style={{ cursor: "pointer" }} required type="submit">
             UPDATE
           </button>
@@ -224,7 +224,7 @@ const DriverForm = () => {
             </span>
           </div>
 
-          <div>
+          <div className="mt-4">
           <button className="button is-link is-outlined" style={{ cursor: "pointer" }} required type="submit">
             Submit
           </button>

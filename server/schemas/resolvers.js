@@ -1,6 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 
-const { Profile, Truck, Driver } = require("../models");
+const { Profile, Truck, Driver, runsheetSchema } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -101,16 +101,17 @@ const resolvers = {
     },
 
     deleteTruck: async (parent, { truckId }, context) => {
+
       if (context.user) {
-        const truck = await Truck.findOneAndUpdate({ 
+        const truck = await Truck.findByIdAndDelete({ 
           _id: truckId,
-          truckDriver: context.user.name
           });
 
           await Profile.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { trucks: truck._id  }},
+          { $pull: { trucks: truckId  }},
           );
+  
         return truck;
       }
       throw new AuthenticationError(
@@ -134,13 +135,16 @@ const resolvers = {
 
     removeRunsheet: async (parent, { runsheetId }, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedRunsheets: { runsheetId: runsheetId } } },
-          { new: true }
-        );
+        const runsheet = await runsheetSchema.findByIdAndDelete({ 
+          _id: runsheetId,
+          });
 
-        return updatedUser;
+          await Profile.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedRunsheets: runsheetId  }},
+          );
+  
+        return runsheet;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
