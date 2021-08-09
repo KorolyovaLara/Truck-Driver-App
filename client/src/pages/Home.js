@@ -16,12 +16,12 @@ function Home() {
       </div>
       <br></br>
       <div>
-      <i className="fas fa-truck"></i> ____
-      <i className="fas fa-traffic-light"></i> ____
-      <i className="fas fa-truck"></i> ____
-      <i className="fas fa-pallet"></i> ____
-      <i className="fas fa-truck"></i> ____
-      <i className="fas fa-truck-loading"></i> ____
+      <i className="fas fa-truck"></i> ____ 
+      <i className="fas fa-traffic-light"></i> ____ 
+      <i className="fas fa-truck"></i> ____ 
+      <i className="fas fa-pallet"></i> ____ 
+      <i className="fas fa-truck"></i> ____ 
+      <i className="fas fa-truck-loading"></i> ____ 
       <i className="fas fa-truck"></i>
       </div>
       <br></br>
