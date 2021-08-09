@@ -68,8 +68,8 @@ const RunsheetForm = () => {
            />
          </div>
          <div className="field is-grouped has-text-weight-bold	">
-         <lable class="container">START</lable>
-         <lable class="container">FINISH</lable>
+         <div className="container">START</div>
+         <div className="container">FINISH</div>
          </div>
          <div className="field is-grouped">
            <input
