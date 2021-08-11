@@ -20,14 +20,16 @@ server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "client", "build")));
+if (process.env.NODE_ENV === 'production') {
+  // Exprees will serve up production assets
+  app.use(express.static('client/build'));
 
-  app.get("*", (_, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  // Express serve up index.html file if it doesn't recognize route
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
-
 
 
 db.once("open", () => {
