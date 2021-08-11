@@ -38,20 +38,20 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-          <section className="hero is-success is-fullheight">
+
             <Navbar />
             <Switch>
-              <PublicRoute path="/" exact component={Home} />
-              <PublicRoute path="/login" exact component={Login} />
-              <PublicRoute path="/register" exact component={Register} />
-              <PrivateRoute path="/profile" exact component={Profile} />
-              <PrivateRoute path="/runsheet" exact component={Runsheet} />
-              <PrivateRoute path="/summary" exact component={Summary} />
+              <Route path="/" exact component={Home} />
+              <Route path="/login" exact component={Login} />
+              <Route path="/register" exact component={Register} />
+              <Route path="/profile" exact component={Profile} />
+              <Route path="/runsheet" exact component={Runsheet} />
+              <Route path="/summary" exact component={Summary} />
               <Route path="/about" exact component={About} />
               <Route path="/contact" exact component={Contact} />
             </Switch>
             <Footer />
-          </section>
+
       </Router>
     </ApolloProvider>
   );
