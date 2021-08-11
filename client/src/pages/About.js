@@ -11,7 +11,7 @@ function About() {
         <div className="columns">
           <div className="column is-2">
           <figure className="image">
-            <img src="/images/hey2.png" alt="banner with word Hey" />
+            <img src="/images/hey_banner.png" alt="banner with word Hey" />
           </figure>
           </div>
           <div className="column has-text-left is-10">
